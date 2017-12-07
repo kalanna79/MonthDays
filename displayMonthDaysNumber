@@ -1,0 +1,59 @@
+<html>
+<head>
+<title>les mois</title>
+</head>
+<body>
+    <div>
+			<form id="select-month">
+				<label for="quantity">Combien de jours comporte le mois n°</label>
+				<input type="number" name="quantity" id="quantity" min="1" max="12">
+				<button type="submit">Afficher</button>
+			</form>
+        <div>
+            <p id="nb">
+                </p>
+</div>
+		</div>
+<script>
+    var form = document.getElementById('select-month');
+var res = document.getElementById('nb');
+
+
+form.addEventListener("submit", function (event) {
+	event.preventDefault();
+	// We transform the value in int
+	var number = parseInt(form.elements.quantity.value);
+
+	// Check if number is an integer
+	if (typeof number === "number" && number >= 1 && number <= 12) 
+    {
+		var numberDays = getNumberDays(number);
+		return (nb.innerHTML = "Le mois n°" + number + " a " + numberDays + " jours");
+		
+	} else {
+		alert("Veuillez rentrer un chiffre compris entre 1 et 12");
+	}
+	document.getElementById("quantity").value = ""
+	return false;
+});
+    
+    
+//allow to display the number of days in a month
+    function getNumberDays(nbday) {
+                if ((nbday%2==0 && nbday <= 6 && nbday!=2) || (nbday >=8 && nbday%2!=0 && nbday!=2))
+                { 
+                    return(30);
+                } else if (nbday==2)
+                    {
+                        return(28);
+                    }
+                else {
+                    return(31);
+                }
+            }
+    
+    
+            
+</script>
+</body>
+</html>

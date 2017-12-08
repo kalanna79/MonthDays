@@ -40,16 +40,13 @@ form.addEventListener("submit", function (event) {
     
 //allow to display the number of days in a month
     function getNumberDays(nbday) {
-                if ((nbday%2==0 && nbday <= 6 && nbday!=2) || (nbday >=8 && nbday%2!=0 && nbday!=2))
-                { 
-                    return(30);
-                } else if (nbday==2)
-                    {
-                        return(28);
-                    }
-                else {
-                    return(31);
-                }
+                
+        // a = m/8
+       var a = Math.floor(nbday/8);
+        var b = nbday + a;
+        var nb = 30+b%2;
+        return nb;
+        
             }
     
     

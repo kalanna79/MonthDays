@@ -41,10 +41,11 @@ form.addEventListener("submit", function (event) {
 //allow to display the number of days in a month
     function getNumberDays(nbday) {
                 
-        // a = m/8
-       var a = Math.floor(nbday/8);
-        var b = nbday + a;
-        var nb = 30+b%2;
+        
+        
+       var a = Math.floor(nbday/8); // on divise en 2 pour avoir 31 au mois d'août
+        var b = nbday + a; // on recrée un numéro de mois fictif
+        var nb = 30+b%2; // on calcule s'il y a un jour en plus ou non grâce au modulo
         return nb;
         
             }
